@@ -81,8 +81,8 @@ export default {
         
       // } 
       else {
+        this.$store.commit('distributeLangScores', {answerIndex})
         this.$store.state.currentCardIndex += 1
-        this.$store.commit('distributeScores', {answerIndex})
       }
       document.documentElement.requestFullscreen()
     }
