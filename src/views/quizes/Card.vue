@@ -9,7 +9,7 @@
       </div>
 
       <div class="space-y-4 bg-white p-8 pt-2 rounded-xl">
-        <p class="font-bold text-lg">
+        <p class="font-bold text-lg max-w-80">
           {{ questionData.title }}
         </p>
         <div class="flex flex-col space-y-4">
