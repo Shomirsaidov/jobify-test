@@ -16,6 +16,6 @@ input[type="range"] {
 }
 
 html {
-    overflow: hidden;
+    /* overflow: hidden; */
     background: linear-gradient(105deg,#fab2ff, #1e08e6);
 }
