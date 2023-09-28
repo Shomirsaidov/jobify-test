@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center w-full h-full">
 
-    <div class="space-y-4 lg:w-1/3 shadow-lg border-2 rounded-xl bg-white">
+    <div class="space-y-4 md:w-1/3 w-full shadow-lg border-2 rounded-xl bg-white">
 
       <div class="p-8 rounded-xl rounded-b-none" style="background-image: radial-gradient( circle 369px at -2.9% 12.9%,  rgba(247,234,163,1) 0%, rgba(236,180,238,0.56) 46.4%, rgba(163,203,247,1) 100.7% );">
         <h1 class="font-black text-xl p-8">Jobify Tech Fest</h1>
@@ -9,7 +9,7 @@
       </div>
 
       <div class="space-y-4 bg-white p-8 pt-2 rounded-xl">
-        <p class="font-bold text-lg">
+        <p class="font-bold text-lg max-w-80">
           {{ questionData.title }}
         </p>
         <div class="flex flex-col space-y-4">
@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     gotoNext() {
-      let answerIndex;
+      let answerIndex = null;
       if(document.getElementById('v0') && document.getElementById('v0').checked == true) {
         answerIndex = 0
       } 
@@ -71,13 +71,19 @@ export default {
       if(document.getElementById('v3') && document.getElementById('v3').checked == true) {
         answerIndex = 3
       }   
-      this.$store.commit('distributeLangScores', {answerIndex})
 
+      console.log('answer index is ' + answerIndex)
+
+      // if(answerIndex == null) {
+      //   return
+      // }
       if(this.$store.getters.questionsLang.length - 1 == this.$store.state.currentCardIndex) {
         console.log('Quiz finished')
         this.$router.push('/finish/' + 'schools')
-      } else {
+      }
+      else {
         this.$store.state.currentCardIndex += 1
+        this.$store.commit('distributeLangScores', {answerIndex})
       }
       document.documentElement.requestFullscreen()
     }

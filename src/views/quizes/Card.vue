@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center w-full h-full">
 
-    <div class="space-y-4 lg:w-1/4 shadow-lg border-2 rounded-xl bg-white">
+    <div class="space-y-4 md:w-1/3 w-full shadow-lg border-2 rounded-xl bg-white">
 
       <div class="p-8 rounded-xl rounded-b-none" style="background-image: radial-gradient( circle 369px at -2.9% 12.9%,  rgba(247,234,163,1) 0%, rgba(236,180,238,0.56) 46.4%, rgba(163,203,247,1) 100.7% );">
         <h1 class="font-black text-xl p-8">Jobify Tech Fest</h1>
@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     gotoNext() {
-      let answerIndex;
+      let answerIndex = null;
       if(document.getElementById('v0') && document.getElementById('v0').checked == true) {
         answerIndex = 0
       } 
@@ -72,13 +72,17 @@ export default {
         answerIndex = 3
       }   
       console.log('het' + answerIndex)
-      this.$store.commit('distributeScores', {answerIndex})
 
       if(this.$store.getters.questions.length - 1 == this.$store.state.currentCardIndex) {
         console.log('Quiz finished')
         this.$router.push('/finish' + '/companies')
-      } else {
+      } 
+      // else if(answerIndex == null) {
+        
+      // } 
+      else {
         this.$store.state.currentCardIndex += 1
+        this.$store.commit('distributeScores', {answerIndex})
       }
       document.documentElement.requestFullscreen()
     }
