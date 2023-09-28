@@ -74,7 +74,12 @@ export default {
       console.log('het' + answerIndex)
       this.$store.commit('distributeScores', {answerIndex})
 
-      this.$store.state.currentCardIndex += 1
+      if(this.$store.getters.questions.length - 1 == this.$store.state.currentCardIndex) {
+        console.log('Quiz finished')
+        this.$router.push('/finish' + '/companies')
+      } else {
+        this.$store.state.currentCardIndex += 1
+      }
       document.documentElement.requestFullscreen()
     }
   }

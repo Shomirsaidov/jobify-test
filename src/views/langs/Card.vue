@@ -73,7 +73,12 @@ export default {
       }   
       this.$store.commit('distributeLangScores', {answerIndex})
 
-      this.$store.state.currentCardIndex += 1
+      if(this.$store.getters.questionsLang.length - 1 == this.$store.state.currentCardIndex) {
+        console.log('Quiz finished')
+        this.$router.push('/finish/' + 'schools')
+      } else {
+        this.$store.state.currentCardIndex += 1
+      }
       document.documentElement.requestFullscreen()
     }
   }

@@ -16,9 +16,10 @@ const routes = [
     component: LangView
   },
   {
-    path: '/finish',
+    path: '/finish/:quiz',
     name: 'finish',
-    component: FinishView
+    component: FinishView,
+    props: true
   },
   {
     path: '/',

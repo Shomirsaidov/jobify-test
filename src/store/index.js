@@ -5,15 +5,28 @@ export default createStore({
     currentCardIndex: 0,
     companies: [
       {
-        name: 'Afkor', 
+        name: 'Афкор', 
         scoring: [
           [9,8,5,6],
           [6,9,7],
           [7,9,8],
-          [9,0,0,7.5],
+          [9,7.5,0,8],
           [6,9],
           [9,8,6],
           [7,8,9,0]
+        ],
+        scores: 0
+      },
+      {
+        name: 'Alif Academy', 
+        scoring: [
+          [7.5,9,7,7],
+          [5,8,8.5],
+          [7,7.75,9],
+          [8.5,9,7.5,0],
+          [7,9],
+          [9,8,6],
+          [9,8,7,0]
         ],
         scores: 0
       },
@@ -46,7 +59,7 @@ export default createStore({
     ],
     schools: [
       {
-        name: 'Shakespeare',
+        name: 'Шекспир',
         scoring: [
           [7,9],
         ],
@@ -58,7 +71,14 @@ export default createStore({
           [9,6],
         ],
         scores: 0
-      } 
+      },
+      {
+        name: 'Доно',
+        scoring: [
+          [8,6],
+        ],
+        scores: 0
+      }
     ]
   },
   getters: {
