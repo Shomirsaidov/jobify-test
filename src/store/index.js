@@ -116,7 +116,19 @@ export default createStore({
           [8,6],
         ],
         scores: 0
+      },
+      {
+        name: 'Сириус',
+        scoring: [
+          [7.5,8],
+          [5,6,8],
+          [6,8,7],
+          [7,8],
+          [8,8],
+        ],
+        scores: 0
       }
+
     ]
   },
   getters: {
